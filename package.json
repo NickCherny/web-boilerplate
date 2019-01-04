@@ -1,0 +1,14 @@
+{
+  "name": "root",
+  "private": true,
+  "author": "nick cherny <cherny.web@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "inject": "npx lerna bootstrap",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "koa": "^2.6.2",
+    "lerna": "^3.8.4"
+  }
+}

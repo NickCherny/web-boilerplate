@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./volumes/mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+  server:
+    container_name: server
+    image: "parfum/server"
+    restart: always
+    build: .
+    expose:
+      - 3001
+    ports:
+      - "3001:3000"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    working_dir: /usr/src/app/server
+    volumes:
+      - ./volumes/server:/usr/src/app/server
